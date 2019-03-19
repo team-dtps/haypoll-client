@@ -33,5 +33,13 @@ describe('polls reducer', () => {
     });
   });
 
-  it()
+  it('handles CREATE_POLL_PENDING action', () => {
+    const updatedState = reducer(state, {
+      type: CREATE_POLL_PENDING
+    });
+    expect(updatedState).toEqual({
+      ...state,
+      loading: true
+    });
+  });
 });
