@@ -1,7 +1,6 @@
 import reducer from './polls';
 import { CREATE_POLL, CREATE_POLL_PENDING, CREATE_POLL_FULFILLED } from '../actions/polls';
 
-
 describe('polls reducer', () => {
   let state;
   beforeEach(() => {

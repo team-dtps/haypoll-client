@@ -1,5 +1,6 @@
 import { createAction } from 'promise-middleware-redux';
 import { postPoll } from '../services/polls';
+
 export const [
   createPoll,
   CREATE_POLL,
