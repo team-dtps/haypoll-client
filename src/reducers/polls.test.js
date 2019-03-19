@@ -24,7 +24,7 @@ describe('polls reducer', () => {
       }
     });
     expect(updatedState).toEqual({
-      ...state, 
+      ...state,
       polls: [{
         prompt: 'Question',
         choices: ['a', 'b', 'c'],
@@ -40,6 +40,16 @@ describe('polls reducer', () => {
     expect(updatedState).toEqual({
       ...state,
       loading: true
+    });
+  });
+
+  it('handles the CREATE_POLL_FULFILLED action', () => {
+    const updatedState = reducer(state, {
+      type: CREATE_POLL_FULFILLED
+    });
+    expect(updatedState).toEqual({
+      ...state,
+      loading: false
     });
   });
 });
