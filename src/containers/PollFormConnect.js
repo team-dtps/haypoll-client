@@ -41,13 +41,12 @@ const mapStateToProps = state => ({
   choices: getChoices(state)
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = dispatch => ({
   onSubmit(event) {
     event.preventDefault();
   },
-  addChoice() {
-    console.log('props', props);
-    dispatch(addChoice(props.choice));
+  addChoice(choice) {
+    dispatch(addChoice(choice));
   },
   onChange({ target }) {
     const factoryMethod = {
@@ -58,7 +57,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   },
   createPoll(prompt, choices, event) {
     event.preventDefault();
-    dispatch(createPoll({ prompt, choices: props.choices }));
+    dispatch(createPoll({ prompt, choices }));
   }
 });
 
