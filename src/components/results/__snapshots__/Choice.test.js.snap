@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Choice snapshot can match a snapshot 1`] = `
+<li>
+  hay
+   = 
+  50
+  %
+</li>
+`;
