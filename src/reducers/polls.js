@@ -22,6 +22,9 @@ export default function reducer(state = intialState, { type, payload }) {
       return {
         ...state,
         polls: [...state.polls, payload],
+        prompt: '',
+        choices: [],
+        choice: '',
         loading: false
       };
     case CREATE_POLL_PENDING:
@@ -37,7 +40,8 @@ export default function reducer(state = intialState, { type, payload }) {
     case ADD_CHOICE:
       return {
         ...state,
-        choices: [...state.choices, payload]
+        choices: [...state.choices, payload],
+        choice: ''
       };
     case UPDATE_CHOICE: 
       return {
