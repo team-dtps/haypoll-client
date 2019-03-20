@@ -1,6 +1,7 @@
 const intialState = {
   prompt: '',
   choices: [],
+  choice: '',
   creator: '',
   polls: [],
   loading: false

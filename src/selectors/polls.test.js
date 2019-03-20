@@ -1,10 +1,11 @@
-import { getPrompt, getChoices, getPolls } from './polls';
+import { getPrompt, getChoices, getPolls, getChoice } from './polls';
 
 describe('polls selector', () => {
   let state = {
     polls: {
       prompt: 'Are you okay?',
       choices: ['yes', 'no', 'idk'],
+      choice: 'yes',
       polls: [{ 
         prompt: 'Are you okay?', 
         choices: ['yes', 'no', 'idk'] 
@@ -25,5 +26,9 @@ describe('polls selector', () => {
       prompt: 'Are you okay?', 
       choices: ['yes', 'no', 'idk'] 
     }]);
+  });
+  it('can get a choice from state', () => {
+    const choice = getChoice(state);
+    expect(choice).toEqual('yes');
   });
 });
