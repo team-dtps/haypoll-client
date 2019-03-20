@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Polls snapshot can match a snapshot 1`] = `
+<ul>
+   
+  <li>
+    poll.questions
+  </li>
+   
+</ul>
+`;
