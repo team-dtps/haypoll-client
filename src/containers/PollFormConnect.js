@@ -6,13 +6,18 @@ import { getPrompt, getChoice, getChoices } from '../selectors/polls';
 import { createPoll, addChoice, updateChoice, updatePrompt } from '../actions/polls';
 
 class PollFormConnect extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+
   static propTypes = {
     prompt: PropTypes.string.isRequired,
     choice: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     choices: PropTypes.array.isRequired,
     onSubmit: PropTypes.func.isRequired,
-    onAdd: PropTypes.func.isRequired
+    createPoll: PropTypes.func.isRequired,
+    addChoice: PropTypes.func.isRequired
   }
 
   render() {
@@ -22,7 +27,9 @@ class PollFormConnect extends PureComponent {
         choice={this.props.choice}
         onChange={this.props.onChange}
         onSubmit={this.props.onSubmit}
-        onAdd={this.props.onAdd}
+        createPoll={this.props.createPoll}
+        addChoice={this.props.addChoice}
+        choices={this.props.choices}
       />
     );
   }
@@ -35,8 +42,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  onAdd() {
-    dispatch(addChoice());
+  onSubmit(event) {
+    event.preventDefault();
+  },
+  addChoice() {
+    console.log('props', props);
+    dispatch(addChoice(props.choice));
   },
   onChange({ target }) {
     const factoryMethod = {
@@ -45,7 +56,7 @@ const mapDispatchToProps = (dispatch, props) => ({
     };
     dispatch(factoryMethod[target.name](target.value));
   },
-  onSubmit(prompt, choice, event) {
+  createPoll(prompt, choices, event) {
     event.preventDefault();
     dispatch(createPoll({ prompt, choices: props.choices }));
   }
@@ -53,4 +64,5 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 export default connect(
   mapStateToProps, 
-  mapDispatchToProps)(PollFormConnect);
+  mapDispatchToProps
+)(PollFormConnect);
