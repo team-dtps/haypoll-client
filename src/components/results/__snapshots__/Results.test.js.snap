@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results snapshot can match a snapshot 1`] = `
+<section>
+  <h1>
+    do you like hay?
+  </h1>
+  <ul>
+    <li>
+      yay
+       = 
+      3
+      %
+    </li>
+    <li>
+      nay
+       = 
+      5
+      %
+    </li>
+  </ul>
+</section>
+`;
