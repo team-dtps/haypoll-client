@@ -7,6 +7,7 @@ describe('polls reducer', () => {
     state = {
       prompt: '',
       choices: [],
+      choice: '',
       user: '',
       loading: false,
       polls: []
@@ -19,6 +20,7 @@ describe('polls reducer', () => {
       payload: {
         prompt: 'Question',
         choices: ['a', 'b', 'c'],
+        choice: '',
         user: '1234'
       }
     });
@@ -27,6 +29,7 @@ describe('polls reducer', () => {
       polls: [{
         prompt: 'Question',
         choices: ['a', 'b', 'c'],
+        choice: '',
         user: '1234'
       }]
     });
