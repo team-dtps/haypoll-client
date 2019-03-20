@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Poll snapshot can match a snapshot 1`] = `
+Array [
+  <h2>
+    Poll questions
+  </h2>,
+  <ul>
+     
+    <li>
+      choice1
+    </li>
+    <li>
+      choice2
+    </li>
+    <li>
+      choice3
+    </li>
+     
+  </ul>,
+]
+`;
