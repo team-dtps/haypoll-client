@@ -5,6 +5,7 @@ describe('polls reducer', () => {
   let state;
   beforeEach(() => {
     state = {
+      choice: '',
       prompt: '',
       choices: [],
       user: '',
