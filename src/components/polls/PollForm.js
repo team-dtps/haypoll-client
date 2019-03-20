@@ -12,8 +12,8 @@ function PollForm({ prompt, choices, choice, onSubmit, onChange, createPoll, add
       
       <label htmlFor="add-choice">Add Choice</label>
       <button type="button" onClick={addChoice.bind(null, choice)} id="add-choice">Add Choice</button>
+      
       <label htmlFor="create-poll">Create Poll</label>
-
       <button type="submit" onClick={createPoll.bind(null, prompt, choices)} id="create-poll">Create Poll</button>
     </form>
   );
