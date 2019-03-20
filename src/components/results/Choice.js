@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Choice({ choice, totalVotes }) {
+function Choice({ total, choice }) {
   return (
     <li>
-      {choice} = {totalVotes}
+      {choice} = {total}%
     </li>
   );
 }
 
 Choice.propTypes = {
-  choice: PropTypes.string.isRequired,
-  totalVotes: PropTypes.number.isRequired
+  total: PropTypes.number.isRequired,
+  choice: PropTypes.string.isRequired
 };
+
+export default Choice;
