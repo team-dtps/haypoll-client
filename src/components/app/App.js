@@ -1,12 +1,28 @@
 import React from 'react';
-import PollFormContainer from '../../containers/PollFormConnect';
+import 'normalize.css';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+import Loading from '../Loading';
+import { withSession } from '../../containers/auth/withSession';
+import Callback from '../../containers/auth/Callback';
+import Home from '../Home';
+
+export default function App() {
   return (
+    <Router>
     <>
-      <h1> HAYHAY </h1>
-      <PollFormContainer />
+    <Switch>
+      <Route path="/callback" component={Callback}></Route>
+      <Route path="/home" component={Home}></Route>
+      <Route path="/" component={withSession(Loading)}></Route>
+    </Switch>
     </>
-  );
-}
-export default App;
+    </Router>
+  );	  
+} 
+
+
