@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../../services/auth';
 import { getToken } from '../../selectors/session';
+import Loading from '../../components/app/Loading';
 
 export const withSession = Component => {
   class WithSession extends PureComponent {
     static propTypes = {
-      token: PropTypes.string
+      token: PropTypes.string.isRequired
     };
-    
+
     componentDidMount() {
       if(!this.props.token) {
         login();
@@ -17,8 +18,8 @@ export const withSession = Component => {
     }
 
     render() {
-      if(!this.props.token) return <h1>logging in </h1>;
-      return <Component { ...this.props } />;
+      if(!this.props.token) return <Loading />;
+      return <Component {...this.props } />;
     }
   }
 
@@ -26,7 +27,5 @@ export const withSession = Component => {
     token: getToken(state)
   });
 
-  return connect(
-    mapStateToProps
-  )(WithSession);
+  return connect(mapStateToProps)(WithSession);
 };

@@ -1,17 +1,17 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setSession } from '../../actions/session';
 import { getToken } from '../../selectors/session';
 import { Redirect } from 'react-router-dom';
-import { setSession } from '../../actions/session';
-import Loading from '../../components/Loading';
+import Loading from '../../components/app/Loading';
 
 class Callback extends PureComponent {
   static propTypes = {
-    token: PropTypes.string.isRequired,
-    handleAuth: PropTypes.func.isRequired
-  }
-
+    handleAuth: PropTypes.func.isRequired,
+    token: PropTypes.string.isRequired
+  };
+  
   componentDidMount() {
     this.props.handleAuth();
   }

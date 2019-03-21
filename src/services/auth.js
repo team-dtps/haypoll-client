@@ -30,8 +30,7 @@ export const handleAuth = () => {
           });
         });
       } else {
-        reject(err || 'Authentication Error');
-
+        reject(err || 'Something went wrong');
       }
     });
   });
