@@ -1,5 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import Results from './Results';
 
 describe('Results snapshot', () => {
@@ -13,10 +13,10 @@ describe('Results snapshot', () => {
         ]
       }
     };
-
-    const tree = renderer.create(
+    const wrapper = shallow(
       <Results results={props.results}/>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });
