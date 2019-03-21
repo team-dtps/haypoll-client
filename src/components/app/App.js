@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { withSession } from '../../containers/auth/withSession';
 import Callback from '../../containers/auth/Callback';
-import Loading from './Loading';
+import Login from './Login';
 import Home from './Home';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
         <Switch>
           <Route path="/callback" component={Callback}></Route>
           <Route path="/home" component={withSession(Home)}></Route>
-          <Route path="/" component={Loading}></Route>
+          <Route path="/" component={Login}></Route>
         </Switch>
       </>
     </Router>
