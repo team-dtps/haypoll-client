@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results snapshot can match a snapshot 1`] = `
+<section>
+  <HorizontalBar
+    data={
+      Object {
+        "datasets": Array [
+          Object {
+            "backgroundColor": "rgb(255, 99, 132)",
+            "borderColor": "rgb(255, 99, 132)",
+            "data": Array [
+              3,
+              5,
+            ],
+            "label": "do you like hay?",
+          },
+        ],
+        "labels": Array [
+          "yay",
+          "nay",
+        ],
+      }
+    }
+  />
+</section>
+`;

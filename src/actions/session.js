@@ -1,6 +1,5 @@
 import { createAction } from 'promise-middleware-redux';
-import { handleAuth } from '../services/auth.js';
-
+import { handleAuth } from '../services/auth';
 
 export const [
   setSession,
