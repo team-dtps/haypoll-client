@@ -1,6 +1,16 @@
 import React from 'react';
+import 'normalize.css';
 import PollFormContainer from '../../containers/PollFormConnect';
 import Results from '../results/Results'; 
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+import Loading from '../Loading';
+import { withSession } from '../../containers/auth/withSession';
+import Callback from '../../containers/auth/Callback';
+import Home from '../Home';
 
 const results = {
   prompt: 'prompt',
@@ -13,13 +23,21 @@ const results = {
   ]
 };
 
-function App() {
+export default function App() {
   return (
-    <>
-      <h1> HAYHAY </h1>
-      <PollFormContainer />
-      <Results results={results}/>
-    </>
-  );
-}
-export default App;
+    <Router>
+      <>
+        <Switch>
+          <Route path="/callback" component={Callback}></Route>
+          <Route path="/home" component={Home}></Route>
+          <Route path="/" component={withSession(Loading)}></Route>
+        </Switch>
+          <h1> HAYHAY </h1>
+          <PollFormContainer />
+          <Results results={results}/>
+      </>
+    </Router>
+  );	  
+} 
+
+
