@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Choice from './Choice';
+import { HorizontalBar } from 'react-chartjs-2';
 
 function Results({ results }) {
   const { prompt, voteTotals } = results;
-  const resultsList = voteTotals.map((option, i) => {
-    return <Choice key={i} total={option.total} choice={option.choice} />;
-  });
+  const choices = voteTotals.map(result => result.choice);
+  const totals = voteTotals.map(result => result.total);
+
+  const data = {
+    labels: [...choices],
+    datasets: [{
+      label: prompt,
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [...totals]
+    }]
+  };
+
   return (
     <section>
-      <h1>{prompt}</h1>
-      <ul>
-        {resultsList}
-      </ul>
+      <HorizontalBar data={data}/>
     </section>
   );
 }
